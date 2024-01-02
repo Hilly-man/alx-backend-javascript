@@ -1,0 +1,23 @@
+{
+  "name": "0x00-es6_basic",
+  "version": "1.0.0",
+  "description": "JavaScript project",
+  "main": "0-constants.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "0-main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hilly-man/alx-backend-javascript.git"
+  },
+  "keywords": [
+    "JS"
+  ],
+  "author": "Hillyman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hilly-man/alx-backend-javascript/issues"
+  },
+  "homepage": "https://github.com/Hilly-man/alx-backend-javascript#readme"
+}

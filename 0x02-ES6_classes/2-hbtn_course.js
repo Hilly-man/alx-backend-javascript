@@ -1,55 +1,43 @@
-class HolbertonCourse {
+export default class HolbertonCourse {
   constructor(name, length, students) {
-    this._name = this.validateString(name, 'name');
-    this._length = this.validateNumber(length, 'length');
-    this._students = this.validateArray(students, 'students');
+    if (typeof name !== 'string') throw TypeError('name must be a String');
+    if (typeof length !== 'number') throw TypeError('length must be a Number');
+    if (!Array.isArray(students)) throw TypeError('students must be an Array');
+    for (const el of students) {
+      if (typeof el !== 'string') { throw TypeError('students must contain strings'); }
+    }
+    this._name = name;
+    this._length = length;
+    this._students = students;
+  }
+
+  set name(name) {
+    if (typeof name !== 'string') throw TypeError('name must be a String');
+    this._name = name;
   }
 
   get name() {
     return this._name;
   }
 
-  set name(newName) {
-    this._name = this.validateString(newName, 'name');
+  set length(length) {
+    if (typeof length !== 'number') throw TypeError('length must be a Number');
+    this._length = length;
   }
 
   get length() {
     return this._length;
   }
 
-  set length(newLength) {
-    this._length = this.validateNumber(newLength, 'length');
+  set students(students) {
+    if (!Array.isArray(students)) throw TypeError('students must be an Array');
+    for (const el of students) {
+      if (typeof el !== 'string') { throw TypeError('students must contain strings'); }
+    }
+    this._students = students;
   }
 
   get students() {
     return this._students;
   }
-
-  set students(newStudents) {
-    this._students = this.validateArray(newStudents, 'students');
-  }
-
-  validateString(value, attribute) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`${attribute} must be a string`);
-    }
-    return value;
-  }
-
-  validateNumber(value, attribute) {
-    const parsedValue = parseFloat(value);
-    if (isNaN(parsedValue) || !Number.isInteger(parsedValue) || parsedValue < 0) {
-      throw new TypeError(`${attribute} must be a valid positive integer`);
-    }
-    return parsedValue;
-  }
-
-  validateArray(value, attribute) {
-    if (!Array.isArray(value)) {
-      throw new TypeError(`${attribute} must be an array`);
-    }
-    return value;
-  }
 }
-
-export default HolbertonCourse;
